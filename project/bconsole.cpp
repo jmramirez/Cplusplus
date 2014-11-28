@@ -58,6 +58,7 @@ namespace bio { // continuation of bio namespace
     char* strncpy(void* d, const void* s, unsigned int len) {
         char*des = (char*)d;
         const char*src = (const char*)s;
+
         while( len-- && (*des++ = *src++));
         return (char*)d;
     }

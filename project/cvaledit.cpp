@@ -8,7 +8,7 @@ namespace cio{
       bool (*Validate)(const char* , CDialog&), 
       void (*Help)(MessageStatus, CDialog&),
       bool Bordered,
-      const char* Border):CLineEdit(Row,Col,Width,Maxdatalen,Insertmode,Bordered,Border){
+      const char* Border):CLineEdit(Str,Row,Col,Width,Maxdatalen,Insertmode,Bordered,Border){
     _help=Help;
 	_validate=Validate;
   
@@ -31,10 +31,10 @@ namespace cio{
 		_help(MessageStatus::SetMessage,*(container()));
 	  }
 	  key=CLineEdit::edit();
-	  if(_validate&&(key==UP||key==DOWN||key==TAB||key==ENTER)){
+	  if ((key == UP || key == DOWN || key == TAB || key == ENTER)&&_validate){
 		  
 		  valid=_validate((char*)_data,*(container()));
-		  while(!valid){
+		  while ((key == UP || key == DOWN || key == TAB || key == ENTER)&&!valid){
             key=CLineEdit::edit();
 		    valid=_validate((char*)_data,*(container()));
 		  }
@@ -44,7 +44,7 @@ namespace cio{
 		_help(MessageStatus::ClearMessage,*(container()));
 	  }
 	}else{
-	  CLineEdit::edit();
+	  key:CLineEdit::edit();
 	}
 	return key;
 	}

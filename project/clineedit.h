@@ -9,9 +9,8 @@
 #define _JM_CLINEEDIT_H
 #include "cfield.h"
 #include "console.h"
-using namespace cio;
 namespace cio{
-  class CLineEdit:public CField{
+  class CLineEdit: public CField{
     bool _dyn;
     int _maxdatalen;
     bool* _insertmode;

@@ -39,7 +39,7 @@ namespace cio{
   void CDialog::draw(int fn){
     int idx;
     if(fn==C_FULL_FRAME){
-      CFrame::draw();
+      CFrame::draw(fn);
 	  for(idx=0;idx<_fnum&&_fld[idx];idx++){
 	    _fld[idx]->draw(fn);
 	  } 
@@ -50,7 +50,7 @@ namespace cio{
 	  }
 	}
 	else if(fn>0){
-		_fld[fn]->draw(fn);
+		_fld[fn-1]->draw(fn);
 	}
   }
 
@@ -59,13 +59,14 @@ namespace cio{
 	int idx;
 	bool flag;
 	bool done=false;
+	_curidx = 0;
 	if (!(_editable)){
-	    this->draw(fn);
+	    draw(fn);
 	    key=console.getKey();
 	    done=true;
 	}
 	else if(fn<=0){
-	    this->draw(fn);
+	    draw(fn);
 	    while(!_fld[_curidx]->editable()){
 	      _curidx++;
 	    }
@@ -112,7 +113,7 @@ namespace cio{
 		break;
 	  default:
 	    done=true;
-		break;
+		continue;
 	  }
     }
 	return key;

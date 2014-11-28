@@ -17,7 +17,6 @@ namespace cio{
     char* temp=new char[strlen(Str)+1];
 	_data=temp;
 	strcpy(_data,Str);
-
   }
   CButton::~CButton(){
     delete [] _data;
@@ -25,39 +24,39 @@ namespace cio{
 
   void CButton::draw(int fn){
     CFrame::draw(fn);
-	console.display(" ",(visible())?absRow()+1:absRow(),(visible())?absCol()+1:absCol()-1,1,0);
+	console.display(" ", (visible()) ? absRow() + 1 : absRow(), (visible()) ? absCol() + 1 : absCol() - 1, 1, 0);
 	console.display((char*)_data,(visible())?absRow()+1:absRow(),(visible())?absCol()+2:absCol(),strlen((char*)_data),0);
   }
 
   int CButton::edit(){
-	  int key;
-	  draw();
-	  if (visible()){
-		  console.display("]", absRow() + 1, absCol() + strlen((char*)_data) + 2);
-		  console.display("[", absRow() + 1, absCol() + 1, 1);
-	  }
-	  else{
-		  console.display("]", absRow(), absCol() + strlen((char*)_data));
-		  console.display("[", absRow(), absCol() - 1, 1);
-	  }
-	  key = console.getKey();
-	  switch (key) {
-	  case ENTER:
-	  case SPACE:
-		  key = C_BUTTON_HIT;
-		  break;
+    int key;
+    draw();
+	if(visible()){
+	  console.display("]",absRow()+1,absCol()+strlen((char*)_data)+2);
+      console.display("[",absRow()+1,absCol()+1,1);
+	}
+	else{
+	  console.display("]",absRow(),absCol()+strlen((char*)_data));
+      console.display("[",absRow(),absCol()-1,1);
+	}
+	key=console.getKey();
+	switch (key) {
+      case ENTER:
+      case SPACE:
+      key=C_BUTTON_HIT;
+      break;
 	  default:
-		  break;
-	  }
-	  if (visible()){
-		  console.display(" ", absRow() + 1, absCol() + strlen((char*)_data) + 2);
-		  console.display(" ", absRow() + 1, absCol() + 1, 1);
-	  }
-	  else{
-		  console.display(" ", absRow(), absCol() + strlen((char*)_data));
-		  console.display(" ", absRow(), absCol() - 1, 1);
-	  }
-	  return key;
+	  break;
+	}
+	if (visible()){
+		console.display(" ", absRow() + 1, absCol() + strlen((char*)_data) + 2);
+		console.display(" ", absRow() + 1, absCol() + 1, 1);
+	}
+	else{
+		console.display(" ", absRow(), absCol() + strlen((char*)_data));
+		console.display(" ", absRow(), absCol() - 1, 1);
+	}
+    return key;
   }
 
   void CButton::set(const void* Str){

@@ -114,16 +114,23 @@ namespace cio{
 		}
 		break;
       case BACKSPACE: //when BACKSPACE is pressed
-        for(idx = *curPosition+*strOffset-1;idx >=0 && str[idx];idx++){
-          str[idx] = str[idx+1];
-        }
-        if(*curPosition){
-          (*curPosition)--;
-        }
-        else if(*strOffset && !*curPosition){
-		  *curPosition +=3;
-          *strOffset-=4;
-        }
+		  if (strlen(str)){			  
+			  if (*curPosition){
+				  for (idx = *curPosition + *strOffset; idx >= 0 && str[idx - 1]; idx++){
+					  str[idx - 1] = str[idx];
+				  }
+				  (*curPosition)--;
+			  }
+			  else if (*strOffset&&*curPosition <fieldLength){
+				  for (idx = *curPosition + *strOffset; idx >= 0 && str[idx - 1]; idx++){
+					  str[idx - 1] = str[idx];
+				  }
+				  (*strOffset)--;
+			  }
+			  else{
+				  console.alarm();
+			  }
+		  }
         else{
           console.alarm();
         }
@@ -152,11 +159,11 @@ namespace cio{
 
 		break;
 	  case RIGHT:
-	    if((*curPosition<fieldLength-1)&&((unsigned int)*curPosition<strlen(str))){
-		  (*curPosition)++;
+		if (*curPosition<strlen(str)&&*curPosition < fieldLength - 1){
+			(*curPosition)++;
 		}
-		else if((unsigned int)(*curPosition+*strOffset)<strlen(str)){
-		  (*strOffset)++;
+		else if (*curPosition+*strOffset<strlen(str)){
+			(*strOffset)++;
 		}
 		else{
 		  cio::console.alarm();

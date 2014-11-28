@@ -15,21 +15,21 @@ using namespace bio;
 	  char* temp=new char[strlen(Str)+1];
 	  strcpy(temp,Str);
 	  _data=temp;
-	  width(strlen(Str));
+	  CFrame::width(strlen(Str)+1);
 	}
 	else if(Len>0){
 	  char* temp=new char[Len+1];
 	  strncpy(temp,Str,Len);
-	  temp[Len]=0;
+	  temp[Len]='\0';
 	  _data=temp;
-	  width(Len);
+	  CFrame::width(Len);
 	}
   }
   CLabel::CLabel(int Row,int Col,int Len):CField(Row,Col){
     char* temp=new char[Len+1];
 	temp[0]='\0';
 	_data=temp;
-	width(Len);
+	CFrame:width(Len);
   }
   CLabel::CLabel(const CLabel& L){
     *this=L;
