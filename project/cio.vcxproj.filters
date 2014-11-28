@@ -65,6 +65,9 @@
     <ClCompile Include="console.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="cfield.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -72,6 +75,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="clabel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbutton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cvaledit.cpp">
@@ -83,13 +89,10 @@
     <ClCompile Include="cmenuitem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cdialog.cpp">
+    <ClCompile Include="TheApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cbutton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Test4Button.cpp">
+    <ClCompile Include="Test5ValEdit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
