@@ -14,14 +14,19 @@ Application Capabilities
 
 
 Browse Opened data file
-    goto next record.
-    goto previous record.
-    goto last record.
-    goto first record.
+
+    -Go to next record.
+    -Go to previous record.
+    -Go to last record.
+    -Go to first record.
     
 Edit the record
-    Save the edited record.
-    Cancel editing a record without saving.
+
+    -Save the edited record.
+    -Cancel editing a record without saving.
+
 Add a record
-    Create an empty record and save it at the end of the file. 
+
+    -Create an empty record and save it at the end of the file.
+
 
